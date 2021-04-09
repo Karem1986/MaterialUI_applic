@@ -20,6 +20,8 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+//Link navigation 
+import {Link} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -131,6 +133,11 @@ export default function Header() {
  const [open, setOpen] = React.useState(false);
  const anchorRef = React.useRef(null);
  const [selectedIndex, setSelectedIndex] = React.useState(1);
+ //Tabs
+ const [value, setValue] = React.useState(0);
+ const handleChange = (event, newValue) => {
+  setValue(newValue);
+};
 
  const handleClick = () => {
    console.info(`You clicked ${options[selectedIndex]}`);
@@ -180,10 +187,11 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <Tabs value={0} className={classes.tabs}>
-           <Tab className={classes.text} label="Diensten"></Tab>
-           <Tab className={classes.text}label="Aanbod"></Tab>
-           <Tab className={classes.text}label="Email-Address"></Tab>
+          <Tabs value={value} onChange={handleChange} className={classes.tabs}>
+          <Tab className={classes.text} component={Link} to="/" label="Home"></Tab>
+           <Tab className={classes.text} component={Link} to="/diensten" label="Diensten"></Tab>
+           <Tab className={classes.text} component={Link} to="/aanbod" label="Aanbod"></Tab>
+           <Tab className={classes.text} component={Link} to="/contact" label="Contact"></Tab>
           </Tabs>
           <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
           <Button onClick={handleClick}>Telefoon</Button>
