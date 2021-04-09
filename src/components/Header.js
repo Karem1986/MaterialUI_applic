@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     display: 'block',
-    paddingRight: 60,
+    paddingRight: 40,
+    marginLeft: 0,
     height:"3em",
     // [breakpoints.down('sm')]: {
     //   marginLeft: 0,
@@ -112,14 +113,14 @@ export default function Header() {
     <div className={classes.root}>
         <ElevationScroll>
       <AppBar position="fixed" color="primary">
-        <Toolbar>
+        <Toolbar disableGutters>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-           <MenuIcon />
+           {/* <MenuIcon /> */}
           </IconButton>
           <img alt="Janson makelaars logo" src={logo} className={classes.logo}></img>
           <div className={classes.search}>
