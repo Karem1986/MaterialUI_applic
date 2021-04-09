@@ -1,27 +1,15 @@
-import logo from './logo.svg';
-import { Button } from '@material-ui/core'
-import './App.css';
+import { BrowserRouter as Router } from "react-router-dom"
+import { Switch , Route } from "react-router-dom"
+
+import Homepage from "./Pages/Homepage"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <Button  variant='contained'>
-          Learn more
-        </Button>
-        <img src={logo} className="App-logo" alt="logo" />
-    
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-  
-    </div>
+  <Router>
+    <Switch>
+    <Route path="/" exact component={Homepage}></Route>
+    </Switch>
+  </Router>
   );
 }
 
