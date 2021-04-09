@@ -45,9 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: 'relative',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: { //hided in mobiel
       display: 'none', 
-    
+    }, 
+ 
+    [theme.breakpoints.up('md')]: {//shows on ipad and laptop
+      display: 'block', 
+      
     }, 
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
