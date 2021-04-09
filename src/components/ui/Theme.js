@@ -8,18 +8,13 @@ export default createMuiTheme({
       main: '#2196f3',
     },
     secondary: {
-      main: '#1de9b6',
+      main: '#01579b',
     }
   },
   typography: {
-      h5: {
-          fontWeight: 450
-      },
-      h1: {
-          fontWeight: 400
-      },
-      h2: {
-          fontWeight: 400
-      }
+  tab: {
+    textTransform: 'none', //overrides de default uppercase on text in navbar
+    fontSize: '1rem',
+  }
   }
 });
