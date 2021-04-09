@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   logo: {
-    display: 'none',
+    display: 'block',
     paddingRight: 60,
     height:"3em",
     // [breakpoints.down('sm')]: {
