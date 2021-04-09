@@ -1,6 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Box from '@material-ui/core/Box';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -8,6 +9,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import logo from "../../src/assets/logo.svg"
+import Tab from '@material-ui/core/Tab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,19 +20,16 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    display: "none",
+    [theme.breakpoints.down('sm')]: {//shows in ipad and mobiel only
+      display: 'block',
+    },  
   },
   logo: {
     display: 'block',
     paddingRight: 40,
     marginLeft: 0,
     height:"3em",
-    // [breakpoints.down('sm')]: {
-    //   marginLeft: 0,
-    //   marginRight: 900,
-    //   paddingLeft: 0,
-    //   width: 40,
-    //   height: 210,
-    // },
     [theme.breakpoints.down('sm')]: {
       display: 'block', 
       width: 200,
@@ -120,7 +119,7 @@ export default function Header() {
             color="inherit"
             aria-label="open drawer"
           >
-           {/* <MenuIcon /> */}
+            <MenuIcon />
           </IconButton>
           <img alt="Janson makelaars logo" src={logo} className={classes.logo}></img>
           <div className={classes.search}>
