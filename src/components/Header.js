@@ -359,9 +359,7 @@ const container = window !== undefined ? () => window().document.body : undefine
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
-            Responsive drawer
-          </Typography>
+          
             <img
               alt="Janson Makelaars"
               src={logo}
