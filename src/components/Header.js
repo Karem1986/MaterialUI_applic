@@ -321,8 +321,7 @@ const handleDrawerToggle = () => {
 };
 const drawer = (
   <div>
-    <div className={classes.toolbar} />
-    <Divider />
+    <div className={classes.toolbar} /> 
     <List>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
         <ListItem button key={text}>
@@ -330,16 +329,14 @@ const drawer = (
           <ListItemText primary={text} />
         </ListItem>
       ))}
-    </List>
-    <Divider />
-    <List>
-      {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
         <ListItem button key={text}>
           <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
           <ListItemText primary={text} />
         </ListItem>
       ))}
     </List>
+   
   </div>
 );
 
@@ -402,7 +399,7 @@ const container = window !== undefined ? () => window().document.body : undefine
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+        {/* <Hidden xsDown implementation="css">
           <Drawer
             classes={{
               paper: classes.drawerPaper,
@@ -412,7 +409,7 @@ const container = window !== undefined ? () => window().document.body : undefine
           >
             {drawer}
           </Drawer>
-        </Hidden>
+        </Hidden> */}
     </nav>
      
       <div className={classes.toolbarMargin}></div>
