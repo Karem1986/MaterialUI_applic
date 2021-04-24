@@ -11,6 +11,9 @@ import logo from "../../src/assets/logo.svg";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
+//Responsiveness with Material UI
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import { useTheme } from "@material-ui/core/styles"
 //Dropdown
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -44,11 +47,15 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     paddingRight: 40,
     marginLeft: 0,
-    height: "3em",
+    height: "5em",
     [theme.breakpoints.down("sm")]: {
       display: "block",
       width: 200,
-      height: 70,
+      height: "2em"
+    },
+    [theme.breakpoints.down("md")]: {
+      margin: 30,
+      height: "5em"
     },
   },
   title: {
@@ -136,6 +143,8 @@ const options = [
   "Utrecht: 033-456 6789 ",
 ];
 export default function Header() {
+  const theme = useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down("md"))
   const classes = useStyles();
   //Dropdown
   const [open, setOpen] = React.useState(false);
@@ -152,12 +161,12 @@ export default function Header() {
     setAnchorEl(event.currentTarget);
     setOpenMenu(true); //--on hover the menu is visible
   };
-  const handleCloseMenu = (e) => {
+  const handleCloseMenu = () => {
     setAnchorEl(null);
     setOpenMenu(false);
   };
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
@@ -181,39 +190,9 @@ export default function Header() {
 
     setOpen(false);
   };
-
-  return (
-    <div className={classes.root}>
-      <ElevationScroll>
-        <AppBar position="fixed" color="primary">
-          <Toolbar disableGutters>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <MenuIcon />
-            </IconButton>
-            <img
-              alt="Janson Makelaars"
-              src={logo}
-              className={classes.logo}
-            ></img>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
-            </div>
-            <Tabs
+const tabs = (
+  <React.Fragment>
+                <Tabs
               value={value}
               onChange={handleChange}
               className={classes.tabs}
@@ -308,10 +287,44 @@ export default function Header() {
               onClose={handleCloseMenu}
               MenuListProps={{ onMouseLeave: handleCloseMenu }}
             >
-              <MenuItem onClick={handleCloseMenu}>Verkoop</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>Taxatie</MenuItem>
-              <MenuItem onClick={handleCloseMenu}>HypotheekNet</MenuItem>
+              <MenuItem onClick={handleCloseMenu} component={Link} to="/verkoop">Verkoop</MenuItem>
+              <MenuItem onClick={handleCloseMenu} component={Link} to="/taxatie">Taxatie</MenuItem>
+              <MenuItem onClick={handleCloseMenu} component={Link} to="/hypotheeknet">HypotheekNet</MenuItem>
             </Menu>
+  </React.Fragment>
+)
+  return (
+    <div className={classes.root}>
+      <ElevationScroll>
+        <AppBar position="fixed" color="primary">
+          <Toolbar disableGutters>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+            >
+              <MenuIcon />
+            </IconButton>
+            <img
+              alt="Janson Makelaars"
+              src={logo}
+              className={classes.logo}
+            ></img>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ "aria-label": "search" }}
+              />
+            </div>
+            {matches ? null : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
