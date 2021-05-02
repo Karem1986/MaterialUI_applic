@@ -3,7 +3,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
-import Typography from '@material-ui/core/Typography';
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -13,8 +12,8 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
 //Responsiveness with Material UI
-import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { useTheme } from "@material-ui/core/styles"
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 //Dropdown
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -29,16 +28,14 @@ import { Link } from "react-router-dom";
 //Menu
 import Menu from "@material-ui/core/Menu";
 //Drawer on mobile
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import MailIcon from "@material-ui/icons/Mail";
 
 const drawerWidth = 240;
 
@@ -55,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       //shows in ipad and mobiel only
       display: "block",
+      marginLeft: 3,
+      marginRight: 2,
     },
   },
   logo: {
@@ -64,12 +63,14 @@ const useStyles = makeStyles((theme) => ({
     height: "5em",
     [theme.breakpoints.down("sm")]: {
       display: "block",
-      width: 200,
-      height: "2em"
+      width: 210,
+      height: "2em",
+      marginLeft: 1,
+      marginRight: 60,
     },
     [theme.breakpoints.down("md")]: {
-      margin: 30,
-      height: "5em"
+      margin: 10,
+      height: "5em",
     },
   },
   title: {
@@ -82,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
     [theme.breakpoints.down("xs")]: {
-      //hided in mobiel
+      //search is hided on mobiel
       display: "none",
     },
 
@@ -137,14 +138,19 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 15,
     marginRight: "20px",
   },
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
-    drawerPaper: {
-      width: drawerWidth,
-    },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawer: {
+    [theme.breakpoints.down("sm")]: {
+      width: 200,
+     },
+  }
 }));
 
-function ElevationScroll(props) {
+function ElevationScroll(props){
   const { children } = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -167,7 +173,7 @@ export default function Header(props) {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const classes = useStyles();
   //Drawer on mobile:
-  const [ mobileOpen, setMobileOpen] = React.useState(false)
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   //Dropdown
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -212,135 +218,139 @@ export default function Header(props) {
 
     setOpen(false);
   };
-const tabs = (
-  <React.Fragment>
-                <Tabs
-              value={value}
-              onChange={handleChange}
-              className={classes.tabs}
-            >
-              <Tab
-                className={classes.text}
-                component={Link}
-                to="/"
-                label="Home"
-              ></Tab>
-              <Tab
-               aria-owns={anchorEl ? "simple-menu" : undefined}
-               aria-haspopup={anchorEl ? "true" : undefined}
-                className={classes.text}
-                component={Link}
-                onMouseOver={(event) => handleClickMenu(event)}
-                to="/diensten"
-                label="Diensten"
-              ></Tab>
-              <Tab
-                className={classes.text}
-                component={Link}
-                to="/aanbod"
-                label="Aanbod"
-              ></Tab>
-              <Tab
-                className={classes.text}
-                component={Link}
-                to="/contact"
-                label="Contact"
-              ></Tab>
-            </Tabs>
-            <ButtonGroup
-              variant="contained"
-              color="primary"
-              ref={anchorRef}
-              aria-label="split button"
-            >
-              <Button onClick={handleClick}>Telefoon</Button>
-              <Button
-                color="primary"
-                size="small"
-                aria-controls={open ? "split-button-menu" : undefined}
-                aria-expanded={open ? "true" : undefined}
-                aria-label="select merge strategy"
-                aria-haspopup="menu"
-                onClick={handleToggle}
-              >
-                <ArrowDropDownIcon />
-              </Button>
-            </ButtonGroup>
-            <Popper
-              open={open}
-              anchorEl={anchorRef.current}
-              role={undefined}
-              transition
-              disablePortal
-            >
-              {({ TransitionProps, placement }) => (
-                <Grow
-                  {...TransitionProps}
-                  style={{
-                    transformOrigin:
-                      placement === "bottom" ? "center top" : "center bottom",
-                  }}
-                >
-                  <Paper>
-                    <ClickAwayListener onClickAway={handleClose}>
-                      <MenuList id="split-button-menu">
-                        {options.map((option, index) => (
-                          <MenuItem
-                            key={option}
-                            disabled={index === 3}
-                            selected={index === selectedIndex}
-                            onClick={(event) =>
-                              handleMenuItemClick(event, index)
-                            }
-                          >
-                            {option}
-                          </MenuItem>
-                        ))}
-                      </MenuList>
-                    </ClickAwayListener>
-                  </Paper>
-                </Grow>
-              )}
-            </Popper>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              open={openMenu}
-              onClose={handleCloseMenu}
-              MenuListProps={{ onMouseLeave: handleCloseMenu }}
-            >
-              <MenuItem onClick={handleCloseMenu} component={Link} to="/verkoop">Verkoop</MenuItem>
-              <MenuItem onClick={handleCloseMenu} component={Link} to="/taxatie">Taxatie</MenuItem>
-              <MenuItem onClick={handleCloseMenu} component={Link} to="/hypotheeknet">HypotheekNet</MenuItem>
-            </Menu>
-  </React.Fragment>
-)
-//Drawer on mobile handler:
-const handleDrawerToggle = () => {
-  setMobileOpen(!mobileOpen);
-};
-const drawer = (
-  <div>
-    <div className={classes.toolbar} /> 
-    <List>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List>
-   
-  </div>
-);
+  const tabs = (
+    <React.Fragment>
+      <Tabs value={value} onChange={handleChange} className={classes.tabs}>
+        <Tab
+          className={classes.text}
+          component={Link}
+          to="/"
+          label="Home"
+        ></Tab>
+        <Tab
+          aria-owns={anchorEl ? "simple-menu" : undefined}
+          aria-haspopup={anchorEl ? "true" : undefined}
+          className={classes.text}
+          component={Link}
+          onMouseOver={(event) => handleClickMenu(event)}
+          to="/diensten"
+          label="Diensten"
+        ></Tab>
+        <Tab
+          className={classes.text}
+          component={Link}
+          to="/aanbod"
+          label="Aanbod"
+        ></Tab>
+        <Tab
+          className={classes.text}
+          component={Link}
+          to="/contact"
+          label="Contact"
+        ></Tab>
+      </Tabs>
+      <ButtonGroup
+        variant="contained"
+        color="primary"
+        ref={anchorRef}
+        aria-label="split button"
+      >
+        <Button onClick={handleClick}>Telefoon</Button>
+        <Button
+          color="primary"
+          size="small"
+          aria-controls={open ? "split-button-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
+          aria-label="select merge strategy"
+          aria-haspopup="menu"
+          onClick={handleToggle}
+        >
+          <ArrowDropDownIcon />
+        </Button>
+      </ButtonGroup>
+      <Popper
+        open={open}
+        anchorEl={anchorRef.current}
+        role={undefined}
+        transition
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin:
+                placement === "bottom" ? "center top" : "center bottom",
+            }}
+          >
+            <Paper>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList id="split-button-menu">
+                  {options.map((option, index) => (
+                    <MenuItem
+                      key={option}
+                      disabled={index === 3}
+                      selected={index === selectedIndex}
+                      onClick={(event) => handleMenuItemClick(event, index)}
+                    >
+                      {option}
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        open={openMenu}
+        onClose={handleCloseMenu}
+        MenuListProps={{ onMouseLeave: handleCloseMenu }}
+      >
+        <MenuItem onClick={handleCloseMenu} component={Link} to="/verkoop">
+          Verkoop
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu} component={Link} to="/taxatie">
+          Taxatie
+        </MenuItem>
+        <MenuItem onClick={handleCloseMenu} component={Link} to="/hypotheeknet">
+          HypotheekNet
+        </MenuItem>
+      </Menu>
+    </React.Fragment>
+  );
+  //Drawer on mobile handler:
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+  const drawer = (
+    <div>
+      <div className={classes.toolbar} />
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
-const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <div className={classes.root}>
@@ -356,7 +366,7 @@ const container = window !== undefined ? () => window().document.body : undefine
             >
               <MenuIcon />
             </IconButton>
-          
+
             <img
               alt="Janson Makelaars"
               src={logo}
@@ -378,15 +388,14 @@ const container = window !== undefined ? () => window().document.body : undefine
             {matches ? null : tabs}
           </Toolbar>
         </AppBar>
-        </ElevationScroll>
-     
-        <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+      </ElevationScroll>
+
+      <nav className={classes.drawer}>
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            anchor={theme.direction === "rtl" ? "right" : "left"}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
@@ -399,19 +408,8 @@ const container = window !== undefined ? () => window().document.body : undefine
             {drawer}
           </Drawer>
         </Hidden>
-        {/* <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden> */}
-    </nav>
-     
+      </nav>
+
       <div className={classes.toolbarMargin}></div>
     </div>
   );
