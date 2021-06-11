@@ -80,9 +80,9 @@ export const useStyles = makeStyles((theme) => ({
     color: "inherit",
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: theme.spacing(1, 5, 1, 5), //top, right, bottom, left
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(10)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
@@ -93,10 +93,10 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   tabs: {
-    marginLeft: theme.spacing(53),
+    marginLeft: theme.spacing(48),
   },
   buttonGroup: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(1.5)
   },
   text: {
     ...theme.typography.tab, //centralizes the styles to be used elsewhere in the app
