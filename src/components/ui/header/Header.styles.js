@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
   logo: {
     display: "block",
     paddingRight: 40,
-    marginLeft: 0,
+    marginLeft: 10,
     height: "5em",
     [theme.breakpoints.down("sm")]: {
       display: "block",
@@ -93,8 +93,10 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   tabs: {
-    marginRight: 0,
-    marginLeft: "auto",
+    marginLeft: theme.spacing(53),
+  },
+  buttonGroup: {
+    marginRight: theme.spacing(2)
   },
   text: {
     ...theme.typography.tab, //centralizes the styles to be used elsewhere in the app

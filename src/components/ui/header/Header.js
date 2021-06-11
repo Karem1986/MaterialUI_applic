@@ -145,7 +145,7 @@ export default function Header(props) {
         ref={anchorRef}
         aria-label="split button"
       >
-        <Button onClick={handleClick}>Telefoon</Button>
+        <Button onClick={handleClick}  className={classes.buttonGroup}>Telefoon</Button>
         <Button
           color="primary"
           size="small"
