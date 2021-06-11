@@ -5,6 +5,8 @@ export const useStyles = makeStyles((theme) => ({
 footer: {
     maxWidth:"100%",
     backgroundColor: "#2097F3",
+    zIndex: 1302,
+    position: "relative",
     [theme.breakpoints.down("md")]: {
         width: "65em",
     },
