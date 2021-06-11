@@ -13,11 +13,11 @@ function App() {
     <Route path="/diensten"  component={Diensten}></Route>
     <Route path="/aanbod"  component={Aanbod}></Route>
     <Route path="/contact"  component={Contact}></Route>
-    <Route path="/" exact component={Homepage}></Route>
+    <Route path="/" exact component={Homepage} style={{height: "2000px"}} ></Route>
     </Switch>
     <Footer />
   </Router>
-  );
+  ); 
 }
 
 export default App;
