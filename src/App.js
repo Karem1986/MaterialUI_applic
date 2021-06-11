@@ -4,6 +4,7 @@ import Homepage from "./Pages/Homepage"
 import Diensten from "./Pages/Diensten"
 import Aanbod from "./Pages/Aanbod"
 import Contact from "./Pages/Contact"
+import Footer from "./components/ui/footer/Footer"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     <Route path="/contact"  component={Contact}></Route>
     <Route path="/" exact component={Homepage}></Route>
     </Switch>
+    <Footer />
   </Router>
   );
 }

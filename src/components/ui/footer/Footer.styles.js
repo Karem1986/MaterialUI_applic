@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({ 
 footer: {
-    margin: theme.spacing(3),
-    backgroundColor: theme.palette.common.blue
+    marginTop: theme.spacing(101),
+    width:"100%",
+    backgroundColor: "#2097F3"
 }
 }));
