@@ -14,7 +14,7 @@ const classes = useStyles()
         <ThemeProvider theme={theme}>
             <Header />
           <Box m={2} className={classes.root}>
-            <Typography variant="h4">
+            <Typography variant="h5" className={classes.title}>
                 Homepage
                 </Typography>
                 </Box>
