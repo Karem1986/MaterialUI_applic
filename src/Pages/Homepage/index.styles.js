@@ -11,10 +11,10 @@ root: {
 },
 title: {
     marginTop: theme.spacing(2),
-    [theme.breakpoints.down("md")]: {
-       fontSize: "4em",
+    // [theme.breakpoints.down("md")]: {
+    //    fontSize: "4em",
     
-    },
+    // },
     [theme.breakpoints.down("xs")]: {
         display: "none"
     

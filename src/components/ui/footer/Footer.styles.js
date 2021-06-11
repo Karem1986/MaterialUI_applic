@@ -10,17 +10,11 @@ footer: {
     },
     [theme.breakpoints.down("xs")]: {
         width: "37em",
+        height: theme.spacing(32)
     },
 },
 adornment: {
     width:"25em",
     verticalAlign: "bottom",
-    // [theme.breakpoints.down("md")]: {
-    //     width: "23em"
-    // },
-    // [theme.breakpoints.down("xs")]: {
-    //     width: "17em",
-    // },
-
 }
 }));
