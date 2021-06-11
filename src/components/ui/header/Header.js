@@ -4,14 +4,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { fade, makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import logo from "../../src/assets/logo.svg";
+// import logo from "../../src/assets/logo.svg";
+import logo from "../../../assets/logo.svg"
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
-//Responsiveness with Material UI
+import {useStyles} from './Header.styles'
+//Responsiveness Material UI
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 //Dropdown
@@ -37,118 +38,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MailIcon from "@material-ui/icons/Mail";
 
-const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  toolbarMargin: {
-    ...theme.mixins.toolbar,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    display: "none",
-    [theme.breakpoints.down("sm")]: {
-      //shows in ipad and mobiel only
-      display: "block",
-      marginLeft: 3,
-      marginRight: 2,
-    },
-  },
-  logo: {
-    display: "block",
-    paddingRight: 40,
-    marginLeft: 0,
-    height: "5em",
-    [theme.breakpoints.down("sm")]: {
-      display: "block",
-      width: 210,
-      height: "2em",
-      marginLeft: 1,
-      marginRight: 60,
-    },
-    [theme.breakpoints.down("md")]: {
-      margin: 10,
-      height: "5em",
-    },
-  },
-  title: {
-    flexGrow: 1,
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
-  search: {
-    position: "relative",
-    [theme.breakpoints.down("xs")]: {
-      //search is hided on mobiel
-      display: "none",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      //shows on ipad and laptop
-      display: "block",
-    },
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    paddingLeft: 10,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  inputRoot: {
-    color: "inherit",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-  tabs: {
-    marginRight: 0,
-    marginLeft: "auto",
-  },
-  text: {
-    ...theme.typography.tab, //centralizes the styles to be used elsewhere in the app
-    minWidth: 15,
-    marginRight: "20px",
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawer: {
-    [theme.breakpoints.down("sm")]: {
-      width: 200,
-     },
-  }
-}));
 
 function ElevationScroll(props){
   const { children } = props;
