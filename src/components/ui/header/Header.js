@@ -38,8 +38,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MailIcon from "@material-ui/icons/Mail";
 
-
-
 function ElevationScroll(props){
   const { children } = props;
   const trigger = useScrollTrigger({

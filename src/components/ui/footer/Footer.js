@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { useStyles } from "./Footer.styles";
 import footerAdornment from "../../../assets/Footer Adornment.svg";
@@ -12,7 +13,7 @@ export default function Footer() {
         <Grid container justify="center" className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2}>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/" className={classes.link}>
                 Home
               </Grid>
             </Grid>
@@ -20,16 +21,16 @@ export default function Footer() {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction="column"spacing={2}>
-              <Grid item className={classes.link}>
-                Ons verhaal 
+              <Grid item component={Link} to="/diensten" className={classes.link}>
+                Diensten
               </Grid>
-              <Grid item className={classes.link}>
-                Huisen Fotos
+              <Grid item component={Link} to="/aanbod" className={classes.link}>
+                Aanbod
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/overons"className={classes.link}>
                 Over ons
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/klanten" className={classes.link}>
                 Klanten 
               </Grid>
             </Grid>
@@ -37,16 +38,16 @@ export default function Footer() {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2}>
-              <Grid item className={classes.link}>
-                The revolution
+              <Grid item component={Link} to="/huizenfotos" className={classes.link}>
+                Huizen's fotos
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/mission" className={classes.link}>
                 Mission
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/partners" className={classes.link}>
                 Partners
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/process" className={classes.link}>
                 Process
               </Grid>
             </Grid>
@@ -54,13 +55,13 @@ export default function Footer() {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2}>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/locaties" className={classes.link}>
                 Locaties
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/facebook/jansonMakelaars" className={classes.link}>
                 Facebook
               </Grid>
-              <Grid item className={classes.link}>
+              <Grid item component={Link} to="/instagram/jansonMakelaars" className={classes.link}>
                 Instagram
               </Grid>
             </Grid>
@@ -68,8 +69,8 @@ export default function Footer() {
 
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2}>
-              <Grid item className={classes.link}>
-                Contact ons
+              <Grid item component={Link} to="/contact" className={classes.link}>
+                Contact 
               </Grid>
             </Grid>
           </Grid>
