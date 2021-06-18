@@ -10,7 +10,7 @@ export default function Footer(props) {
 
   return (
     <>
-     <Hidden xsDown>
+     <Hidden mdDown>
       <footer className={classes.footer}>
         <Grid container justify="center" className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
