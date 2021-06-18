@@ -65,9 +65,7 @@ export default function Header(props) {
   //Dropdown
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
-  //Tabs
-  const [value, setValue] = React.useState(0);
+
   //Menu on Services:
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openMenu, setOpenMenu] = React.useState(false); //-->on services/Diensten the menu is by default closed
@@ -83,15 +81,15 @@ export default function Header(props) {
   };
 
   const handleChange = (newValue) => {
-    setValue(newValue);
+    props.setValue(newValue);
   };
 
   const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
+    console.info(`You clicked ${options[props.selectedIndex]}`);
   };
 
   const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
+    props.setSelectedIndex(index);
     setOpen(false);
   };
 
@@ -108,7 +106,7 @@ export default function Header(props) {
   };
   const tabs = (
     <React.Fragment>
-      <Tabs value={value} onChange={handleChange} className={classes.tabs}>
+      <Tabs value={props.value} onChange={handleChange} className={classes.tabs}>
         <Tab
           className={classes.text}
           component={Link}
@@ -178,7 +176,7 @@ export default function Header(props) {
                     <MenuItem
                       key={option}
                       disabled={index === 3}
-                      selected={index === selectedIndex}
+                      selected={index === props.selectedIndex}
                       onClick={(event) => handleMenuItemClick(event, index)}
                     >
                       {option}
