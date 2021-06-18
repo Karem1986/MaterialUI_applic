@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { useStyles } from "./Footer.styles";
+import Hidden from '@material-ui/core/Hidden';
 import footerAdornment from "../../../assets/Footer Adornment.svg";
 
 export default function Footer(props) {
@@ -9,6 +10,7 @@ export default function Footer(props) {
 
   return (
     <>
+     <Hidden xsDown>
       <footer className={classes.footer}>
         <Grid container justify="center" className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
@@ -18,7 +20,7 @@ export default function Footer(props) {
               </Grid>
             </Grid>
           </Grid>
-
+        
           <Grid item className={classes.gridItem}>
             <Grid container direction="column"spacing={2}>
               <Grid item component={Link} onClick={() => {props.setValue(1); props.setSelectedIndex(0)}} to="/diensten" className={classes.link}>
@@ -35,6 +37,7 @@ export default function Footer(props) {
               </Grid>
             </Grid>
           </Grid>
+        
 
           <Grid item className={classes.gridItem}>
             <Grid container direction="column" spacing={2}>
@@ -83,6 +86,7 @@ export default function Footer(props) {
           className={classes.adornment}
         ></img>
       </footer>
+      </Hidden>
     </>
   );
 }
