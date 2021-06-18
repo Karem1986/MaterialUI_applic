@@ -5,9 +5,9 @@ import { ThemeProvider } from "@material-ui/styles";
 import theme from "./components/ui/Theme";
 import Header from "./components/ui/header/Header";
 import Homepage from "./Pages/Homepage";
-import Diensten from "./Pages/Diensten";
-import Aanbod from "./Pages/Aanbod";
-import Contact from "./Pages/Contact";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Favorites";
+import Favorites from "./Pages/Favorites";
 import Footer from "./components/ui/footer/Footer";
 
 function App() {
@@ -23,9 +23,9 @@ function App() {
           setSelectedIndex={setSelectedIndex}
         />
         <Switch>
-          <Route path="/diensten" component={Diensten}></Route>
-          <Route path="/aanbod" component={Aanbod}></Route>
-          <Route path="/contact" component={Contact}></Route>
+        <Route path="/signup" component={Signup}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path="/favorites" component={Favorites}></Route>
           <Route path="/" exact component={Homepage}></Route>
         </Switch>
         <Footer

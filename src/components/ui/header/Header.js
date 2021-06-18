@@ -26,8 +26,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 //Link navigation
 import { Link } from "react-router-dom";
-//Menu
-import Menu from "@material-ui/core/Menu";
 //Drawer on mobile
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
@@ -68,16 +66,11 @@ export default function Header(props) {
 
   //Menu on Services:
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [openMenu, setOpenMenu] = React.useState(false); //-->on services/Diensten the menu is by default closed
 
   //Menu handlers:
   const handleClickMenu = (event) => {
     setAnchorEl(event.currentTarget);
-    setOpenMenu(true); //--on hover the menu is visible
-  };
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
-    setOpenMenu(false);
+ 
   };
 
   const handleChange = (newValue) => {
@@ -119,20 +112,20 @@ export default function Header(props) {
           className={classes.text}
           component={Link}
           onMouseOver={(event) => handleClickMenu(event)}
-          to="/diensten"
-          label="Diensten"
+          to="/login"
+          label="Login"
         ></Tab>
         <Tab
           className={classes.text}
           component={Link}
-          to="/aanbod"
-          label="Aanbod"
+          to="/signup"
+          label="Signup"
         ></Tab>
-        <Tab
+            <Tab
           className={classes.text}
           component={Link}
-          to="/contact"
-          label="Contact"
+          to="/favorites"
+          label="Favorites"
         ></Tab>
       </Tabs>
       <ButtonGroup
@@ -188,23 +181,7 @@ export default function Header(props) {
           </Grow>
         )}
       </Popper>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        open={openMenu}
-        onClose={handleCloseMenu}
-        MenuListProps={{ onMouseLeave: handleCloseMenu }}
-      >
-        <MenuItem onClick={handleCloseMenu} component={Link} to="/verkoop">
-          Verkoop
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu} component={Link} to="/taxatie">
-          Taxatie
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu} component={Link} to="/hypotheeknet">
-          HypotheekNet
-        </MenuItem>
-      </Menu>
+  
     </React.Fragment>
   );
   //Drawer on mobile handler:

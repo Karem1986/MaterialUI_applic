@@ -30,5 +30,9 @@ link: {
 },
 gridItem: {
     margin: "3em",
+}, 
+icon: {
+    height: "3em",
+    width: "3em",
 }
 }));

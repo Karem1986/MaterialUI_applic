@@ -6,11 +6,9 @@ import { useStyles } from "./index.styles"
 export default function Homepage() {
 const classes = useStyles()
     return (
-        
-   
           <Box m={2} className={classes.root}>
             <Typography variant="h5" className={classes.title}>
-                Homepage
+                Welcome! Choose from the properties below: 
                 </Typography>
                 </Box>
             

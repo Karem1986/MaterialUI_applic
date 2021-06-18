@@ -7,6 +7,6 @@ root: {
    height: "576px",
 },
 title: {
-    marginTop: theme.spacing(5), 
+    margin: theme.spacing(5), 
 }
 }));

@@ -93,6 +93,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   tabs: {
+    marginRight: theme.spacing(3),
     marginLeft: theme.spacing(48),
   },
   buttonGroup: {
@@ -100,8 +101,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   text: {
     ...theme.typography.tab, //centralizes the styles to be used elsewhere in the app
-    minWidth: 15,
-    marginRight: "20px",
+    minWidth: 10,
+    marginRight: "10px",
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,

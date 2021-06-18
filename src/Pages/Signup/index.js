@@ -1,14 +1,13 @@
 import React from 'react'
 import Box from "@material-ui/core/Box";
-export default function Diensten() {
 
+export default function Signup() {
     return(
-        <>
-      
+        <>    
           <Box>
-              Contact
+              Signup 
               </Box>
-     
+       
       </>
     )
 }
